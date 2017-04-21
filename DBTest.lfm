@@ -1,0 +1,1201 @@
+object Form1: TForm1
+  Left = 410
+  Height = 666
+  Top = 132
+  Width = 1130
+  Caption = 'Form1'
+  ClientHeight = 666
+  ClientWidth = 1130
+  Color = clSilver
+  LCLVersion = '1.2.4.0'
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 74
+    Width = 1130
+    Align = alTop
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 1130
+    DataSource = SrcTest
+    Options = []
+    TabOrder = 0
+  end
+  object P: TTSPanel
+    Left = 0
+    Height = 74
+    Top = 0
+    Width = 1130
+    DisplayStyle.TextAlign = tapCenter
+    DisplayStyle.BorderColor = clBlack
+    DisplayStyle.BorderStyle = brdrBump
+    DisplayStyle.BorderWidth = 2
+    DisplayStyle.BevelSides = [bvlLeft, bvlRight, bvlTop, bvlBottom]
+    DisplayStyle.Background.Color = clSilver
+    DisplayStyle.Background.ColorOpacity = 255
+    DisplayStyle.Background.Gradient1.StartColor = clWhite
+    DisplayStyle.Background.Gradient1.StartColorOpacity = 255
+    DisplayStyle.Background.Gradient1.DrawMode = dmSet
+    DisplayStyle.Background.Gradient1.EndColor = clBlack
+    DisplayStyle.Background.Gradient1.EndColorOpacity = 255
+    DisplayStyle.Background.Gradient1.ColorCorrection = True
+    DisplayStyle.Background.Gradient1.GradientType = gtLinear
+    DisplayStyle.Background.Gradient1.Point1XPercent = 0
+    DisplayStyle.Background.Gradient1.Point1YPercent = 0
+    DisplayStyle.Background.Gradient1.Point2XPercent = 0
+    DisplayStyle.Background.Gradient1.Point2YPercent = 100
+    DisplayStyle.Background.Gradient1.Sinus = False
+    DisplayStyle.Background.Gradient2.StartColor = clWhite
+    DisplayStyle.Background.Gradient2.StartColorOpacity = 255
+    DisplayStyle.Background.Gradient2.DrawMode = dmSet
+    DisplayStyle.Background.Gradient2.EndColor = clBlack
+    DisplayStyle.Background.Gradient2.EndColorOpacity = 255
+    DisplayStyle.Background.Gradient2.ColorCorrection = True
+    DisplayStyle.Background.Gradient2.GradientType = gtLinear
+    DisplayStyle.Background.Gradient2.Point1XPercent = 0
+    DisplayStyle.Background.Gradient2.Point1YPercent = 0
+    DisplayStyle.Background.Gradient2.Point2XPercent = 0
+    DisplayStyle.Background.Gradient2.Point2YPercent = 100
+    DisplayStyle.Background.Gradient2.Sinus = False
+    DisplayStyle.Background.Gradient1EndPercent = 35
+    DisplayStyle.Background.Style = bbsColor
+    DisplayStyle.Caption = 'P'
+    Align = alTop
+    Caption = 'P'
+    ClientHeight = 74
+    ClientWidth = 1130
+    TabOrder = 1
+    object BtnActive: TSpeedButton
+      Left = 528
+      Height = 46
+      Top = 16
+      Width = 143
+      AllowAllUp = True
+      GroupIndex = 1
+      OnClick = BtnActiveClick
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 200
+      Height = 22
+      Top = 24
+      Width = 104
+      OnClick = SpeedButton1Click
+    end
+    object XInactiveState: TCheckBox
+      Left = 344
+      Height = 17
+      Top = 24
+      Width = 91
+      AllowGrayed = True
+      Caption = 'XInactiveState'
+      OnChange = XInactiveStateChange
+      TabOrder = 0
+    end
+    object Button1: TButton
+      Left = 26
+      Height = 25
+      Top = 19
+      Width = 75
+      Caption = 'Button1'
+      OnClick = Button1Click
+      TabOrder = 1
+    end
+  end
+  object TSDBGrid2: TTSDBGrid
+    Left = 0
+    Height = 567
+    Top = 99
+    Width = 1130
+    Align = alClient
+    Color = clWindow
+    Columns = <>
+    DataSource = SrcTest
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    TabOrder = 2
+    Filter.FilterType = gftSQLdb
+    Sorting.TriggerAppend.ActiveTriggers = [trgMouse, trgKeyboard]
+    Sorting.TriggerAppend.MouseButton = mbLeft
+    Sorting.TriggerAppend.MouseShift = [ssShift]
+    Sorting.TriggerAppend.ShortCut = 41000
+    Sorting.TriggerAppend.MouseArea = [ttaHeader]
+    Sorting.TriggerNew.ActiveTriggers = [trgMouse, trgKeyboard]
+    Sorting.TriggerNew.MouseButton = mbLeft
+    Sorting.TriggerNew.MouseShift = []
+    Sorting.TriggerNew.ShortCut = 32808
+    Sorting.TriggerNew.MouseArea = [ttaHeader]
+    Sorting.SortType = gstSQLServer
+    OptionsForm.FormCaption = 'Set grid options'
+    OptionsForm.ShowTitleMark = False
+    OptionsForm.Trigger.ActiveTriggers = [trgMouse, trgKeyboard]
+    OptionsForm.Trigger.MouseButton = mbRight
+    OptionsForm.Trigger.MouseShift = [ssAlt]
+    OptionsForm.Trigger.ShortCut = 118
+    OptionsForm.Trigger.MouseArea = [ttaHeader, ttaCells]
+    OptionsForm.Columns = [gocVisible, gocFilter, gocFilterActive, gocColumnWidth, gocSorting]
+    MaxColumnDefaultWidth = 100
+    StoreSettings = False
+    TitleRowHeight = 18
+  end
+  object TrMS: TSQLTransaction
+    Active = False
+    Database = CnMS
+    left = 272
+    top = 224
+  end
+  object CnMS: TMSSQLConnection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'WaWiPP'
+    KeepConnection = False
+    Password = '.hafen2'
+    Transaction = TrMS
+    UserName = 'sa'
+    HostName = 'S-SQL1'
+    LogEvents = []
+    left = 272
+    top = 168
+  end
+  object SrcTest: TDataSource
+    DataSet = QTest
+    left = 336
+    top = 224
+  end
+  object QTest: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 10
+    FieldDefs = <    
+      item
+        Name = 'ArtNr'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'KurzNr'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'BasisGrp'
+        DataType = ftWord
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'HauptGrp'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'UGrp1'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'UGrp2'
+        DataType = ftWord
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'BonBez'
+        DataType = ftString
+        Precision = -1
+        Size = 80
+      end    
+      item
+        Name = 'SuchText'
+        DataType = ftString
+        Precision = -1
+        Size = 80
+      end    
+      item
+        Name = 'Bezeichnung'
+        DataType = ftString
+        Precision = -1
+        Size = 1020
+      end    
+      item
+        Name = 'MischEK'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'LastEK'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'LastAnz'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'LastDat'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Last2EK'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'Last2Anz'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Last2Dat'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Zugaenge'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Start'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'VK1'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'VK2'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'VK3'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'VK1Aktion'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'VK2Aktion'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'VK3Aktion'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'VKBus'
+        DataType = ftFMTBcd
+        Precision = 12
+        Size = 5
+      end    
+      item
+        Name = 'MwSt'
+        DataType = ftWord
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Inhalt'
+        DataType = ftString
+        Precision = -1
+        Size = 16
+      end    
+      item
+        Name = 'MaszEinh'
+        DataType = ftString
+        Precision = -1
+        Size = 8
+      end    
+      item
+        Name = 'PackArt'
+        DataType = ftString
+        Precision = -1
+        Size = 12
+      end    
+      item
+        Name = 'ArtikelArt'
+        DataType = ftString
+        Precision = -1
+        Size = 12
+      end    
+      item
+        Name = 'PfandArtNr'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'GebindeArtNr'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MainArtNr'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'AnzHauptArt'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'AktionStart'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'AktionEnde'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'AktionDauer'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'AktionFrequenz'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'AutoAktion'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'EANGewicht'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'EANPreis'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Aktion'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Rabatt'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'HatGebinde'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IstGebinde'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Pfand'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PreisAendern'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'AuslaufArt'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'KassenArt'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'WaagenArt'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Marke'
+        DataType = ftBoolean
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MinBest'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MeldBest'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'BestBest'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SollBest'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Palette'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Bearbeiter'
+        DataType = ftString
+        Precision = -1
+        Size = 80
+      end    
+      item
+        Name = 'Geaendert'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'LetzteInventur'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    Database = CnMS
+    Transaction = TrMS
+    SQL.Strings = (
+      'select *'
+      'from StammdatenArtikel'
+      ''
+      ''
+    )
+    Params = <>
+    left = 336
+    top = 168
+    object QTestArtNr: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ArtNr'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QTestKurzNr: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'KurzNr'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestBasisGrp: TWordField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BasisGrp'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QTestHauptGrp: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HauptGrp'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QTestUGrp1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UGrp1'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestUGrp2: TWordField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UGrp2'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestBonBez: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'BonBez'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object QTestSuchText: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'SuchText'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object QTestBezeichnung: TStringField
+      DisplayWidth = 1020
+      FieldKind = fkData
+      FieldName = 'Bezeichnung'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object QTestMischEK: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'MischEK'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestLastEK: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'LastEK'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestLastAnz: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LastAnz'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestLastDat: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LastDat'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestLast2EK: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'Last2EK'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestLast2Anz: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Last2Anz'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestLast2Dat: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Last2Dat'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestZugaenge: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Zugaenge'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestStart: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Start'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestVK1: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'VK1'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestVK2: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'VK2'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestVK3: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'VK3'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestVK1Aktion: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'VK1Aktion'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestVK2Aktion: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'VK2Aktion'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestVK3Aktion: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'VK3Aktion'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestVKBus: TFMTBCDField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'VKBus'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 5
+    end
+    object QTestMwSt: TWordField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MwSt'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QTestInhalt: TStringField
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'Inhalt'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 16
+    end
+    object QTestMaszEinh: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'MaszEinh'
+      Index = 27
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object QTestPackArt: TStringField
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'PackArt'
+      Index = 28
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object QTestArtikelArt: TStringField
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'ArtikelArt'
+      Index = 29
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object QTestPfandArtNr: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PfandArtNr'
+      Index = 30
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestGebindeArtNr: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'GebindeArtNr'
+      Index = 31
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestMainArtNr: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MainArtNr'
+      Index = 32
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestAnzHauptArt: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AnzHauptArt'
+      Index = 33
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestAktionStart: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AktionStart'
+      Index = 34
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestAktionEnde: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AktionEnde'
+      Index = 35
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestAktionDauer: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AktionDauer'
+      Index = 36
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestAktionFrequenz: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AktionFrequenz'
+      Index = 37
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestAutoAktion: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'AutoAktion'
+      Index = 38
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestEANGewicht: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'EANGewicht'
+      Index = 39
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestEANPreis: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'EANPreis'
+      Index = 40
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestAktion: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'Aktion'
+      Index = 41
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestRabatt: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'Rabatt'
+      Index = 42
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestHatGebinde: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'HatGebinde'
+      Index = 43
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestIstGebinde: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'IstGebinde'
+      Index = 44
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestPfand: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'Pfand'
+      Index = 45
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestPreisAendern: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'PreisAendern'
+      Index = 46
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestAuslaufArt: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'AuslaufArt'
+      Index = 47
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestKassenArt: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'KassenArt'
+      Index = 48
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestWaagenArt: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'WaagenArt'
+      Index = 49
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestMarke: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'Marke'
+      Index = 50
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayValues = 'True;False'
+    end
+    object QTestMinBest: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MinBest'
+      Index = 51
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestMeldBest: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MeldBest'
+      Index = 52
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestBestBest: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BestBest'
+      Index = 53
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestSollBest: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SollBest'
+      Index = 54
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestPalette: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Palette'
+      Index = 55
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestBearbeiter: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'Bearbeiter'
+      Index = 56
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object QTestGeaendert: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Geaendert'
+      Index = 57
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QTestLetzteInventur: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LetzteInventur'
+      Index = 58
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+end

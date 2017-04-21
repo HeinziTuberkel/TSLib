@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="4">
+    <PathDelim Value="\"/>
+    <Name Value="TailorWareDB"/>
+    <Type Value="RunAndDesignTime"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="source"/>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+    </CompilerOptions>
+    <Version Minor="5" Build="1"/>
+    <Files Count="9">
+      <Item1>
+        <Filename Value="source\TS_DBStateLabel.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_DBStateLabel"/>
+      </Item1>
+      <Item2>
+        <Filename Value="source\TSLibDB.pp"/>
+        <UnitName Value="TSLibDB"/>
+      </Item2>
+      <Item3>
+        <Filename Value="source\TS_DBGrid.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_DBGrid"/>
+      </Item3>
+      <Item4>
+        <Filename Value="PackageDefs.inc"/>
+        <Type Value="Include"/>
+      </Item4>
+      <Item5>
+        <Filename Value="source\TS_DBGridOptionsForm.pp"/>
+        <UnitName Value="TS_DBGridOptionsForm"/>
+      </Item5>
+      <Item6>
+        <Filename Value="source\TS_DBGridOptionsForm.lfm"/>
+        <Type Value="LFM"/>
+      </Item6>
+      <Item7>
+        <Filename Value="source\TSClassesDB.pp"/>
+        <UnitName Value="TSClassesDB"/>
+      </Item7>
+      <Item8>
+        <Filename Value="source\TSLibMSOffice.pp"/>
+        <UnitName Value="TSLibMSOffice"/>
+      </Item8>
+      <Item9>
+        <Filename Value="source\TSLibNAV.pp"/>
+        <UnitName Value="TSLibNAV"/>
+      </Item9>
+    </Files>
+    <RequiredPkgs Count="3">
+      <Item1>
+        <PackageName Value="SQLDBLaz"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="TailorWare"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="FCL"/>
+      </Item3>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

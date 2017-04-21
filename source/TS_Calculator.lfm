@@ -1,0 +1,500 @@
+object Calculator: TCalculator
+  Left = 425
+  Height = 329
+  Top = 487
+  Width = 285
+  AutoSize = True
+  BorderStyle = bsToolWindow
+  Caption = 'Calculator'
+  ClientHeight = 329
+  ClientWidth = 285
+  LCLVersion = '1.2.4.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 329
+    Top = 0
+    Width = 285
+    Align = alClient
+    Anchors = []
+    BevelOuter = bvNone
+    ClientHeight = 329
+    ClientWidth = 285
+    TabOrder = 0
+    object Btn7: TSpeedButton
+      AnchorSideLeft.Control = BtnClear
+      AnchorSideTop.Control = BtnClear
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = BtnClear
+      AnchorSideRight.Side = asrBottom
+      Left = 8
+      Height = 32
+      Top = 84
+      Width = 32
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Top = 10
+      Caption = '7'
+    end
+    object Btn8: TSpeedButton
+      AnchorSideLeft.Control = BtnDiv
+      AnchorSideTop.Control = Btn7
+      AnchorSideRight.Control = BtnDiv
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn7
+      AnchorSideBottom.Side = asrBottom
+      Left = 50
+      Height = 32
+      Top = 84
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '8'
+    end
+    object Btn9: TSpeedButton
+      AnchorSideLeft.Control = BtnMul
+      AnchorSideTop.Control = Btn7
+      AnchorSideRight.Control = BtnMul
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn7
+      AnchorSideBottom.Side = asrBottom
+      Left = 92
+      Height = 32
+      Top = 84
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '9'
+    end
+    object Btn4: TSpeedButton
+      AnchorSideLeft.Control = BtnClear
+      AnchorSideTop.Control = Btn7
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = BtnClear
+      AnchorSideRight.Side = asrBottom
+      Left = 8
+      Height = 32
+      Top = 126
+      Width = 32
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Top = 10
+      Caption = '4'
+    end
+    object Btn5: TSpeedButton
+      AnchorSideLeft.Control = BtnDiv
+      AnchorSideTop.Control = Btn4
+      AnchorSideRight.Control = BtnDiv
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn4
+      AnchorSideBottom.Side = asrBottom
+      Left = 50
+      Height = 32
+      Top = 126
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '5'
+    end
+    object Btn6: TSpeedButton
+      AnchorSideLeft.Control = BtnMul
+      AnchorSideTop.Control = Btn4
+      AnchorSideRight.Control = BtnMul
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn4
+      AnchorSideBottom.Side = asrBottom
+      Left = 92
+      Height = 32
+      Top = 126
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '6'
+    end
+    object Btn1: TSpeedButton
+      AnchorSideLeft.Control = BtnClear
+      AnchorSideTop.Control = Btn4
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = BtnClear
+      AnchorSideRight.Side = asrBottom
+      Left = 8
+      Height = 32
+      Top = 168
+      Width = 32
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Top = 10
+      Caption = '1'
+    end
+    object Btn2: TSpeedButton
+      AnchorSideLeft.Control = BtnDiv
+      AnchorSideTop.Control = Btn1
+      AnchorSideRight.Control = BtnDiv
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn1
+      AnchorSideBottom.Side = asrBottom
+      Left = 50
+      Height = 32
+      Top = 168
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '2'
+    end
+    object Btn3: TSpeedButton
+      AnchorSideLeft.Control = BtnMul
+      AnchorSideTop.Control = Btn1
+      AnchorSideRight.Control = BtnMul
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn1
+      AnchorSideBottom.Side = asrBottom
+      Left = 92
+      Height = 32
+      Top = 168
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '3'
+    end
+    object Btn0: TSpeedButton
+      AnchorSideLeft.Control = BtnDiv
+      AnchorSideTop.Control = Btn1
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = BtnDiv
+      AnchorSideRight.Side = asrBottom
+      Left = 50
+      Height = 32
+      Top = 210
+      Width = 32
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Top = 10
+      Caption = '0'
+    end
+    object BtnKomma: TSpeedButton
+      AnchorSideLeft.Control = BtnMul
+      AnchorSideTop.Control = Btn0
+      AnchorSideRight.Control = BtnMul
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn0
+      AnchorSideBottom.Side = asrBottom
+      Left = 92
+      Height = 32
+      Top = 210
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = ','
+    end
+    object BtnAdd: TSpeedButton
+      AnchorSideLeft.Control = BtnSub
+      AnchorSideTop.Control = Btn7
+      AnchorSideRight.Control = BtnSub
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn4
+      AnchorSideBottom.Side = asrBottom
+      Left = 134
+      Height = 74
+      Top = 84
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '+'
+    end
+    object BtnEqual: TSpeedButton
+      AnchorSideLeft.Control = BtnSub
+      AnchorSideTop.Control = Btn1
+      AnchorSideRight.Control = BtnSub
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn0
+      AnchorSideBottom.Side = asrBottom
+      Left = 134
+      Height = 74
+      Top = 168
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '='
+    end
+    object BtnCancel: TSpeedButton
+      AnchorSideLeft.Control = BtnClear
+      AnchorSideTop.Control = Btn0
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = BtnDiv
+      AnchorSideRight.Side = asrBottom
+      Left = 8
+      Height = 32
+      Top = 252
+      Width = 74
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Top = 10
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000C8D0D400C8D0
+        D402C8D0D403C8D0D401C8D0D400000000000000000000000000000000000000
+        00000000000000000000C7CFD404CBD3D311DEE2D417CCD4D30AC7CFD406CCD3
+        D323D1D8D333C9D1D31BC8D0D40400000000C8D0D4000000000000000000C8D0
+        D40000000000C8D0D404CBD2D325C7CFD46E4966D385AEBAD43ACFD5D41B90A1
+        D47D7188D3B1B4BFD478CBD3D326C7CFD4050000000000000000000000000000
+        0000C6CED405CFD6D326B3BED47E183ED3D4042ED2CF93A4D355C3CCD433153D
+        D3AF0029D3F0173ED4D8CCD3D480CCD3D326C8D0D4040000000000000000C8D0
+        D404D1D7D326ABB8D5800E36D7D60026D8E494A4D59FCBD3D431D6DBD41E3E5E
+        D77C022DD7D8002BD7F5153CD8D8A8B6D57ED1D7D326C6CED405C5CED405D9DD
+        D32695A7D67E0A34DAD60631DAE594A5D6A1D0D6D33FC7CFD40AC6CED304DBDF
+        D4268397D67E0530DCD8002BDDF50A34DDD8ABB9D680D0D6D32ADBDFD22A7E93
+        D8800430DDD60028DEE494A5D7A1CDD4D33EC7CFD40BC8D0D40000000000C8D0
+        D404D3D9D326AAB8D77F1841E0D0002DE1ED0A35E1D7A4B3D794768EDA94012E
+        E0D70632E0E594A5D8A1D0D6D33FC7CFD40BC8D0D40000000000000000000000
+        0000C6CED405CFD6D323BBC5D55F3C5EE0AE0029E7EB103BE4EC0331E5EC0029
+        E6E994A6D8A3CDD4D33EC7CFD40BC8D0D40000000000C8D0D40000000000C8D0
+        D40000000000C8D0D403CAD1D322D9DED2822F55E4E4002DE8FD002EE8FB7E95
+        DDD4D5DAD25EC6CED40FC8D0D400000000000000000000000000C8D0D4000000
+        0000C8D0D401C4CDD415C8D0D45D2D54E7C20030ECF40030ECEF123FEBE30735
+        EEDB7F95DF86D8DDD127C8D0D40400000000C8D0D4000000000000000000C8D0
+        D401D0D6D216B7C3D65D395EE8BF002EF0F20534EFE894A6DCA6BBC6D781234C
+        EEBE0131F4CD899DDE7CD8DCD026C6CED4050000000000000000C7CFD401C4CD
+        D315BFC9D55D1A46EFC0002FF3F2002DF4E994A6DDA1CDD4D33FCDD4D21FC2CB
+        D55B5E7CE8AB0335F8BB7D94E37CD8DDD026C8D0D40300000000D0D6D213A9B7
+        DB5D0B3BF4BF0031F6F20536F6E894A6DDA1D0D6D23FC7CFD40AC8D0D402C6CE
+        D411D8DDD13A6682E8800C3DFBA895A8DF62CAD1D314C8D0D400ABB9DA421442
+        F7BA0032FBF2002FFBE994A6DEA1CDD4D33EC7CFD40BC8D0D40000000000C8D0
+        D400C7CFD406D9DDD023A0B0DD4EACBADA41CAD2D311C8D0D400A5B4DB531745
+        F9C60B3CFBD994A6DF9ECFD6D23FC7CFD40AC8D0D40000000000C8D0D4000000
+        000000000000C8D0D402C8D0D407C8D0D407C8D0D402C8D0D400C7CFD424A1B1
+        DC559DAEDD58CBD2D331C7CFD40AC8D0D40000000000C8D0D400000000000000
+        000000000000C8D0D4000000000000000000C8D0D40000000000
+      }
+    end
+    object BtnOK: TSpeedButton
+      AnchorSideLeft.Control = BtnMul
+      AnchorSideTop.Control = BtnCancel
+      AnchorSideRight.Control = BtnSub
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = BtnCancel
+      AnchorSideBottom.Side = asrBottom
+      Left = 92
+      Height = 32
+      Top = 252
+      Width = 74
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000000000000000
+        0000000000000000000050C9694250C969FF4FC868430000000050C969000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000050C9686650C968FC4FC868FF50C968540000000050C9
+        6800000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000050C968AA4FC869FF50C968FF50C968C2000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000050C9692050C868D14FC969FF50C968FE50C867FF50C9693D0000
+        0000000000000000000000000000000000000000000000000000000000004FC8
+        690050C9690150C968604FC869FF4FC968FE50C969FF50C968FF50C868C551CE
+        6B0050C9680000000000000000000000000000000000000000004FC666000000
+        00004FC868324FC869E050C869FE50C969FF50C968F050C868F74FC968F64FC8
+        682B00000000000000000000000000000000000000000000000050C869024FC8
+        682050C969A84FC969FF50C869FE50C969FF50C969A750C969574FC869FF50C8
+        689E0000000000000000000000000000000000000000000000004FC8683D50C9
+        68E04FC868F950C868FF4FC969FF50C968D74FC96930000000004FC9696750C8
+        68FF50C8698600000000000000000000000000000000000000004FC9693250C8
+        69F14FC969FE50C969FE50C969F44FC869650000000050C9690050C9660650C8
+        68C450C969F74FC8682E000000000000000000000000000000005AD269004FC8
+        694A50C969FF50C969FF4FC9698750C86808000000004FC968000000000050C9
+        6B054FC868FF4FC867F70000000050C9690000000000000000004FC869000000
+        00004FC8693950C8686250C9690D000000000000000000000000000000000000
+        000050C969354FC969FF50C969C90000000050C96800000000000000000050C9
+        690000000000000000000000000050C9690000000000000000000000000050C9
+        69000000000050C969C94FC868FF4EC767310000000050C96800000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000050E888000000000050C968E150C869FF50C9672300000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000050C868000000000050C9680A50C869E350C868FF50C86935000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000000000000000000000000000050C9696E50C8686C000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000050C969000000000050C96903
+      }
+    end
+    object EdValue: TTSNumEdit
+      AnchorSideRight.Control = BtnSub
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = BtnClear
+      Left = 8
+      Height = 24
+      Top = 8
+      Width = 158
+      Options = [neoFormatOnEdit, neoPrefixOnEdit, neoPostfixOnEdit]
+      Value = 1
+      EditButton.Width = 0
+      EditButton.Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF07FFFFFF3F000000FF000000D4000000BDFFFF
+        FF45FFFFFF08FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF1C000000FFFFFFFF3FFFFFFF2BFFFFFF4C0000
+        00FFFFFFFF24FFFFFF01FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF07FFFFFF1CFFFFFF0EFFFFFF23FFFFFF4B0000
+        00FFFFFFFF24FFFFFF01FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF01FFFFFF1C000000FF000000FFFFFF
+        FF5EFFFFFF0FFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF07FFFFFF1CFFFFFF0FFFFFFF24FFFFFF4C0000
+        00FFFFFFFF24FFFFFF01FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF01FFFF
+        FF01FFFFFF01FFFFFF01FFFFFF1D000000FFFFFFFF40FFFFFF2BFFFFFF4C0000
+        00FFFFFFFF25FFFFFF02FFFFFF01FFFFFF01FFFFFF01FFFFFF01FFFFFF2BFFFF
+        FF2BFFFFFF2BFFFFFF2BFFFFFF32FFFFFF63000000BE000000D4000000C3FFFF
+        FF68FFFFFF32FFFFFF2BFFFFFF2BFFFFFF2BFFFFFF2BFFFFFF2B000000FF0000
+        00FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF0000
+        00FF000000FF000000FF000000FF000000FF000000FF000000FFFFFFFF2AFFFF
+        FF31FFFFFF4DFFFFFF55FFFFFF4DFFFFFF31FFFFFF2AFFFFFF2BFFFFFF2AFFFF
+        FF31FFFFFF4DFFFFFF55FFFFFF54FFFFFF54FFFFFF4DFFFFFF31FFFFFF00FFFF
+        FF1C000000FF000000FF000000FFFFFFFF1DFFFFFF08FFFFFF1DFFFFFF07FFFF
+        FF1C000000FF000000FF000000FF000000FF000000FFFFFFFF1CFFFFFF00FFFF
+        FF07FFFFFF46000000FFFFFFFF46FFFFFF08FFFFFF24000000FFFFFFFF24FFFF
+        FF08FFFFFF3F000000FFFFFFFF62FFFFFF32FFFFFF23FFFFFF07FFFFFF00FFFF
+        FF01FFFFFF2B000000FFFFFFFF31FFFFFF24FFFFFF4D000000FFFFFFFF4DFFFF
+        FF24FFFFFF0EFFFFFF38000000FFFFFFFF38FFFFFF08FFFFFF00FFFFFF07FFFF
+        FF23FFFFFF4E000000FFFFFFFF46000000FF000000FF000000FF000000FF0000
+        00FFFFFFFF1DFFFFFF08FFFFFF38000000FFFFFFFF39FFFFFF08FFFFFF1C0000
+        00FF000000FF000000FFFFFFFF32FFFFFF24FFFFFF4D000000FFFFFFFF4DFFFF
+        FF2BFFFFFF2AFFFFFF24FFFFFF0FFFFFFF40000000FFFFFFFF23FFFFFF07FFFF
+        FF3F000000FF000000FFFFFFFF2BFFFFFF01FFFFFF23000000FFFFFFFF23FFFF
+        FF1D000000FF000000FFFFFFFF47FFFFFF47000000FFFFFFFF23FFFFFF00FFFF
+        FF07FFFFFF46000000FFFFFFFF2AFFFFFF01FFFFFF07FFFFFF1CFFFFFF07FFFF
+        FF07FFFFFF46000000D4000000FF000000FFFFFFFF40FFFFFF07
+      }
+      EditButton.GlyphUseDefault = False
+      EditButton.EditFont = False
+      AutoSizeWidth = False
+      AntiFlickerGutter = False
+      TabOrder = 0
+      Text = '1,00'
+      ExtendedValues = (
+        '1E-999'
+        '1E-999'
+        '1E-999'
+      )
+    end
+    object BtnClear: TSpeedButton
+      AnchorSideLeft.Control = EdValue
+      AnchorSideTop.Control = EdValue
+      AnchorSideTop.Side = asrBottom
+      Left = 8
+      Height = 32
+      Top = 42
+      Width = 32
+      BorderSpacing.Top = 10
+      Caption = 'C'
+    end
+    object BtnDiv: TSpeedButton
+      AnchorSideLeft.Control = BtnClear
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = BtnClear
+      AnchorSideBottom.Control = BtnClear
+      AnchorSideBottom.Side = asrBottom
+      Left = 50
+      Height = 32
+      Top = 42
+      Width = 32
+      Anchors = [akTop, akLeft, akBottom]
+      BorderSpacing.Left = 10
+      Caption = '/'
+    end
+    object BtnMul: TSpeedButton
+      AnchorSideLeft.Control = BtnDiv
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = BtnClear
+      AnchorSideBottom.Control = BtnClear
+      AnchorSideBottom.Side = asrBottom
+      Left = 92
+      Height = 32
+      Top = 42
+      Width = 32
+      Anchors = [akTop, akLeft, akBottom]
+      BorderSpacing.Left = 10
+      Caption = 'x'
+    end
+    object BtnSub: TSpeedButton
+      AnchorSideLeft.Control = BtnMul
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = BtnClear
+      AnchorSideBottom.Control = BtnClear
+      AnchorSideBottom.Side = asrBottom
+      Left = 134
+      Height = 32
+      Top = 42
+      Width = 32
+      Anchors = [akTop, akLeft, akBottom]
+      BorderSpacing.Left = 10
+      Caption = '-'
+    end
+    object BtnSign: TSpeedButton
+      AnchorSideLeft.Control = BtnClear
+      AnchorSideTop.Control = Btn0
+      AnchorSideRight.Control = BtnClear
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn0
+      AnchorSideBottom.Side = asrBottom
+      Left = 8
+      Height = 32
+      Top = 210
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '±'
+    end
+    object BtnBsp: TSpeedButton
+      AnchorSideLeft.Control = BtnPercent
+      AnchorSideTop.Control = EdValue
+      AnchorSideRight.Control = BtnPercent
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = EdValue
+      AnchorSideBottom.Side = asrBottom
+      Left = 176
+      Height = 24
+      Top = 8
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '<--'
+    end
+    object BtnPercent: TSpeedButton
+      AnchorSideLeft.Control = BtnSub
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = BtnClear
+      AnchorSideBottom.Control = BtnClear
+      AnchorSideBottom.Side = asrBottom
+      Left = 176
+      Height = 32
+      Top = 42
+      Width = 32
+      Anchors = [akTop, akLeft, akBottom]
+      BorderSpacing.Left = 10
+      Caption = '%'
+    end
+    object BtnRcp: TSpeedButton
+      AnchorSideLeft.Control = BtnPercent
+      AnchorSideTop.Control = Btn7
+      AnchorSideRight.Control = BtnPercent
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn7
+      AnchorSideBottom.Side = asrBottom
+      Left = 176
+      Height = 32
+      Top = 84
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '1/x'
+    end
+    object BtnSqr: TSpeedButton
+      AnchorSideLeft.Control = BtnPercent
+      AnchorSideTop.Control = Btn4
+      AnchorSideRight.Control = BtnPercent
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn4
+      AnchorSideBottom.Side = asrBottom
+      Left = 176
+      Height = 32
+      Top = 126
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = 'x²'
+    end
+    object BtnSqrt: TSpeedButton
+      AnchorSideLeft.Control = BtnPercent
+      AnchorSideTop.Control = Btn1
+      AnchorSideRight.Control = BtnPercent
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Btn1
+      AnchorSideBottom.Side = asrBottom
+      Left = 176
+      Height = 32
+      Top = 168
+      Width = 32
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = '√x'
+    end
+  end
+end

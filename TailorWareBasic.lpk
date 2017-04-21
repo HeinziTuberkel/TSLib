@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="4">
+    <PathDelim Value="\"/>
+    <Name Value="TailorWareBasic"/>
+    <Type Value="RunAndDesignTime"/>
+    <Author Value="Lutz Kutscher"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="source"/>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Other>
+        <CompilerMessages>
+          <MsgFileName Value=""/>
+        </CompilerMessages>
+        <CompilerPath Value="$(CompPath)"/>
+      </Other>
+    </CompilerOptions>
+    <Version Minor="5" Build="10"/>
+    <Files Count="12">
+      <Item1>
+        <Filename Value="source\TSLib.pp"/>
+        <UnitName Value="TSLib"/>
+      </Item1>
+      <Item2>
+        <Filename Value="source\TSLibColors.pp"/>
+        <UnitName Value="TSLibColors"/>
+      </Item2>
+      <Item3>
+        <Filename Value="source\TSLibConvert.pp"/>
+        <UnitName Value="TSLibConvert"/>
+      </Item3>
+      <Item4>
+        <Filename Value="source\TSLibDateTime.pp"/>
+        <UnitName Value="TSLibDateTime"/>
+      </Item4>
+      <Item5>
+        <Filename Value="source\TSLibFiles.pp"/>
+        <UnitName Value="TSLibFiles"/>
+      </Item5>
+      <Item6>
+        <Filename Value="source\TSLibObjects.pp"/>
+        <UnitName Value="TSLibObjects"/>
+      </Item6>
+      <Item7>
+        <Filename Value="source\TSLibResources.pp"/>
+        <UnitName Value="TSLibResources"/>
+      </Item7>
+      <Item8>
+        <Filename Value="source\TSNetAccess.pp"/>
+        <UnitName Value="TSNetAccess"/>
+      </Item8>
+      <Item9>
+        <Filename Value="source\TSResources.pp"/>
+        <UnitName Value="TSResources"/>
+      </Item9>
+      <Item10>
+        <Filename Value="TSMsgResource_de.inc"/>
+        <Type Value="Include"/>
+      </Item10>
+      <Item11>
+        <Filename Value="source\TSLibGraphics.pp"/>
+        <UnitName Value="TSLibGraphics"/>
+      </Item11>
+      <Item12>
+        <Filename Value="source\tslibhelpers.pp"/>
+        <UnitName Value="tslibhelpers"/>
+      </Item12>
+    </Files>
+    <Type Value="RunAndDesignTime"/>
+    <RequiredPkgs Count="2">
+      <Item1>
+        <PackageName Value="LCLBase"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+      </Item2>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <CustomOptions Items="ExternHelp" Version="2">
+      <_ExternHelp Items="Count"/>
+    </CustomOptions>
+  </Package>
+</CONFIG>

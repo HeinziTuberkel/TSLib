@@ -1,0 +1,7 @@
+images/TS_Edit.png=TTSEdit
+images/TS_ButtonEdit.png=TTSBtnEdit
+images/TS_NumEdit.png=TTSNumEdit
+images/TS_DateEdit.png=TTSDateEdit
+images/TS_CalcEdit.png=TTSCalcEdit
+images/TS_FolderEdit.png=TTSFolderEdit
+images/TS_FilenameEdit.png=TTSFilenameEdit

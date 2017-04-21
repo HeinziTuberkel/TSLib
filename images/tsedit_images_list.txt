@@ -1,0 +1,5 @@
+images/editbtn_standard.png=STANDARDBTN
+images/editbtn_num.png=CALCBTN
+images/editbtn_date.png=CALENDAR
+images/editbtn_folder.png=FOLDERBTN
+images/editbtn_file.png=FILEBTN

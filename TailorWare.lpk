@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="4">
+    <PathDelim Value="\"/>
+    <Name Value="TailorWare"/>
+    <Type Value="RunAndDesignTime"/>
+    <Author Value="Lutz Kutscher"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="source"/>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <CodeGeneration>
+        <Optimizations>
+          <OptimizationLevel Value="0"/>
+        </Optimizations>
+      </CodeGeneration>
+      <Linking>
+        <Debugging>
+          <DebugInfoType Value="dsDwarf2Set"/>
+        </Debugging>
+      </Linking>
+    </CompilerOptions>
+    <Version Minor="5" Build="10"/>
+    <Files Count="19">
+      <Item1>
+        <Filename Value="source\TSClasses.pp"/>
+        <UnitName Value="TSClasses"/>
+      </Item1>
+      <Item2>
+        <Filename Value="source\TS_CustomINI.pp"/>
+        <UnitName Value="TS_CustomINI"/>
+      </Item2>
+      <Item3>
+        <Filename Value="source\TS_FileINI.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_FileINI"/>
+      </Item3>
+      <Item4>
+        <Filename Value="source\TS_StructuredFileName.pp"/>
+        <UnitName Value="TS_StructuredFileName"/>
+      </Item4>
+      <Item5>
+        <Filename Value="source\TS_Application.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_Application"/>
+      </Item5>
+      <Item6>
+        <Filename Value="source\TS_Forms.pp"/>
+        <UnitName Value="TS_Forms"/>
+      </Item6>
+      <Item7>
+        <Filename Value="source\TS_Debug.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_Debug"/>
+      </Item7>
+      <Item8>
+        <Filename Value="PackageDefs.inc"/>
+        <Type Value="Include"/>
+      </Item8>
+      <Item9>
+        <Filename Value="CompanyConstants.pp"/>
+        <UnitName Value="CompanyConstants"/>
+      </Item9>
+      <Item10>
+        <Filename Value="source\TS_Edit.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_Edit"/>
+      </Item10>
+      <Item11>
+        <Filename Value="source\TS_RegINI.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_RegINI"/>
+      </Item11>
+      <Item12>
+        <Filename Value="source\TS_StringsContainer.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_StringsContainer"/>
+      </Item12>
+      <Item13>
+        <Filename Value="source\TS_Timer.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_Timer"/>
+      </Item13>
+      <Item14>
+        <Filename Value="source\TS_Panel.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_Panel"/>
+      </Item14>
+      <Item15>
+        <Filename Value="source\TS_PropertyEditors.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_PropertyEditors"/>
+      </Item15>
+      <Item16>
+        <Filename Value="source\TSDefaults.pp"/>
+        <UnitName Value="TSDefaults"/>
+      </Item16>
+      <Item17>
+        <Filename Value="source\TS_GroupBox.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_GroupBox"/>
+      </Item17>
+      <Item18>
+        <Filename Value="source\TS_Splitter.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_Splitter"/>
+      </Item18>
+      <Item19>
+        <Filename Value="source\TS_SpeedButton.pp"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="TS_SpeedButton"/>
+      </Item19>
+    </Files>
+    <RequiredPkgs Count="5">
+      <Item1>
+        <PackageName Value="bgracontrols"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="IDEIntf"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="TailorWareBasic"/>
+      </Item3>
+      <Item4>
+        <PackageName Value="LCLBase"/>
+      </Item4>
+      <Item5>
+        <PackageName Value="FCL"/>
+      </Item5>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

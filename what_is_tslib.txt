@@ -1,0 +1,54 @@
+by Lutz Kutscher (Tailor Soft)
+
+Tailor Ware 0.5 (TSLib) is a component and function library made by me.
+It's free to use or change for anyone, either private, educational or commercial.
+On the other hand I don't take any responsibility for any errors or strange behaviour ("special features" <g>)
+you might encounter.
+
+To install it in Lazarus (I used 1.2.4 with FPC 2.6.4 to make it) the following packages 
+should be installed (dependencies):
+- SQLDBLaz 1.0.1
+- zcore 7.0 (free ZEOS database components)
+- LCL 1.0
+- FCL 1.0
+You may be able to install / use it without the ZEOS core if you edit the file "tailorware_defines.inc"
+and remove the line {$define USEZEOS}, but I have not yet testet it enough to be sure that it works.
+
+Now to the contents:
+It contains some components or controls, that (until now) don't do anything special. I just created
+them as descendants from the original LCL-components so I can add functionality in the future.
+When that happens, I only have to recompile my applications and voila, they use the new features.
+
+There are several library files (<something>lib.pp) containing mainly conversion functions I missed before.
+
+The main components are the "TSConfigStorage" components and the "TSDBGrid" control.
+
+----------- TSConfigStorage  --------------
+
+The TSConfigStorage's all descend from TTSConfigStorage and can be used to store values of 
+several types (Boolean, TColor, Integer, Dates, Strings, TStrings) and associate them with a storage name.
+The several descendants (TTSINIConfigStorage, TTSDBConfigStorage, TTSDatasetConfigStorage, 
+TTSSQLConfigStorage, TTSZSQLConfigStorage) can store and retrieve these values to/from different storages.
+Not much new to that - INI-Files, XML-INI, Registry-INI etc.
+The main difference is, that these components 
+a) can be added to a form at design time and the values can be edited with the object inspector
+b) can begin to work (almost) without effort:
+	If you add TTSINIConfigStorage and don't change anything you can still call 
+		MyForm.Color := TTSINIConfigStorage1.Color['FormBackground'];
+	The result is not very useable, since the form would then have the color "clNone", but the 
+	component automatically creates an INI file with name of the application and writes a value
+	"FormBackground=clNone" to that file. 
+	That way you can already change your applications properties through that INI-File.
+	
+	
+----------- TSDBGrid  --------------
+This is a direct descendant from TDBGrid.
+
+It adds functionality to
+- sort the grid data by any column
+- filter the grid data
+- set several grid options a run time on a "GridOptionsForm"
+
+Since I'm tired of writing, you'll have to try yourself or wait until this file is updated....
+
+Lutz Kutscher July 14. 2011
