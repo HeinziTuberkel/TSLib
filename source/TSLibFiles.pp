@@ -3,7 +3,9 @@ unit TSLibFiles;
 interface
 
 uses
-	ShlObj,
+	{$IFDEF WINDOWS}
+        ShlObj,
+        {$EndIf}
 	Classes;
 
 type
@@ -40,7 +42,8 @@ function AppTmpFile(FileExt: string; FileName: string = ''; DelOnTerminate: Bool
 procedure DelTempFiles;
 procedure DelTempFolders;
 
-const
+{$IFDEF WINDOWS}
+ const
   SysFolderID: array [NSpecialDirectory] of Integer = (
     -1, //sdirNone
     -1, //sdirApplication
@@ -74,12 +77,14 @@ const
     CSIDL_COMMON_PICTURES, //sdirCmnPictures
     CSIDL_COMMON_VIDEO //sdirCmnVideo
   );
-
+{$ENDIF}
 
 implementation
 
 uses
+  {$IFDEF WINDOWS}
 	Windows,
+  {$ENDIF}
 	ClipBrd,
 	TSLib,
 	TSLibDateTime,
@@ -91,6 +96,7 @@ var
 	TmpFolderList: TStringList = nil;
 	TmpFileList: TStringList = nil;
 
+{$IFDEF WINDOWS}
 //---------------------------------------------------------------------------------------
 function SpecialDir(DirType: NSpecialDirectory; TrailPathDelim: Boolean=True): string;
 var
@@ -118,6 +124,7 @@ begin
   if TrailPathDelim and (Result > '') then
     Result := IncludeTrailingPathDelimiter(Result);
 end;
+{$ENDIF}
 
 //---------------------------------------------------------------------------------------
 function IsSpecialDir(Dir: string): NSpecialDirectory;
@@ -363,6 +370,7 @@ begin
 	FreeAndNil(TmpFolderList);
 end;
 
+{$IFDEF WINDOWS}
 //***************************************************************************************
 function GetFileVersionParts(const FileName: string; Part1, Part2, Part3, Part4: Boolean): string;
 var
@@ -400,6 +408,7 @@ begin
 		FreeMem(VerData);
 	end;
 end;
+{$ENDIF}
 
 function GetFileBuildNr(const FileName: string): string;
 begin

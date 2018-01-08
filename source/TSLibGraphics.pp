@@ -9,6 +9,10 @@ uses
 	Controls,
 	Types;
 
+const
+	MM_MAX_NUMAXES = 16;
+  FR_PRIVATE = $10;
+
 type
 	NTSGradientDir = (gdNone, gdVertical, gdHorizontal, gdRect);
   NTSBorderStyle = (brdrNone, brdrLine, brdrRaised, brdrLowered, brdrBump, brdrEtched);
@@ -26,11 +30,19 @@ type
 			1: (R, G, B: Byte);
 	end;
 
+	PDesignVector = ^TDesignVector;
+	TDesignVector = packed record
+		dvReserved: DWORD;
+		dvNumAxes: DWORD;
+		dvValues: Array[0..MM_MAX_NUMAXES-1] Of LongInt;
+	end;
+
 var
 	DefaultFont: TFont;
 	TSStdFont: TFont;
 	TSInvertFont: TFont;
 	TSBoldFont: TFont;
+  NextPrivateFontID: Cardinal = $10;
 
 function LightenColorChannel(const Channel: Byte; const Pct: Double): Byte;
 function DarkenColorChannel(const Channel: Byte; const Pct: Double): Byte;
@@ -79,6 +91,12 @@ procedure VerticalText(ARect: TRect; Canvas: TCanvas; const Text: string;
 function BevelsToBorder(BVInner, BVOuter: TBevelCut): NTSBorderStyle;
 procedure BorderToBevels(BorderStyle: NTSBorderStyle; var BVInner, BVOuter: TBevelCut);
 
+function AddFontResourceEx(Dir: PAnsiChar; Flag: Cardinal; PDV: PDesignVector): Int64; StdCall;
+														External 'GDI32.dll' Name 'AddFontResourceExA';
+function RemoveFontResourceEx(Dir: PAnsiChar; Flag: Cardinal; PDV : PDesignVector): Int64; StdCall;
+														External 'GDI32.dll' Name 'RemoveFontResourceExA';
+function LoadTemporaryFont(FontFile: string): Boolean;
+function UnloadTemporaryFont(FontFile: string): Boolean;
 
 const
 	bvlAllSides = [bvlLeft, bvlRight, bvlTop, bvlBottom];
@@ -904,6 +922,20 @@ begin
 			BVOuter := bvLowered;
 		end;
 	end;
+end;
+
+//***************************************************************************************
+function LoadTemporaryFont(FontFile: string): Boolean;
+begin
+	Result := FileExists(FontFile)
+  			and (AddFontResourceEx(PAnsiChar(FontFile), FR_PRIVATE, nil) <> 0);
+end;
+
+//***************************************************************************************
+function UnloadTemporaryFont(FontFile: string): Boolean;
+begin
+	Result := FileExists(FontFile)
+  			and (RemoveFontResourceEx(PAnsiChar(FontFile), FR_PRIVATE, nil) <> 0);
 end;
 
 //***************************************************************************************

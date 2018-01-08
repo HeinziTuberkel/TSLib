@@ -5,10 +5,10 @@ interface
 uses
 {$IFDEF WINDOWS}
 	Windows,
+        ShlObj,
 {$ENDIF}
 
 	Forms,
-	ShlObj,
 	Controls,
 	Graphics,
 	Classes;
@@ -217,6 +217,7 @@ const
 	{$EXTERNALSYM BIF_UAHINT}
 	BIF_UAHINT = $1000;
 
+        {$IFDEF WINDOWS}
 	BIFConsts: array[NBrowseInfoFlag] of Integer = (BIF_BROWSEFORCOMPUTER,
 																		BIF_BROWSEFORPRINTER, BIF_BROWSEINCLUDEFILES,
 																		BIF_BROWSEINCLUDEURLS, BIF_DONTGOBELOWDOMAIN,
@@ -224,6 +225,7 @@ const
 																		BIF_NoTranslateTargets, BIF_RETURNFSANCESTORS,
 																		BIF_RETURNONLYFSDIRS, BIF_SHAREABLE, BIF_STATUSTEXT,
 																		BIF_UAHint, BIF_VALIDATE);
+        {$ENDIF}
 
 	bndBoth: SBetweenBounds = [bndIncludeLo, bndIncludeHi];
 	bndLo: SBetweenBounds = [bndIncludeLo];

@@ -29,6 +29,7 @@ type
 		function GetHintPause: Integer;
 		function GetHintShortCuts: Boolean;
 		function GetHintShortPause: Integer;
+		function GetMainFormOnTaskBar: Boolean;
 		function GetShowHint: Boolean;
 		function IsStoredAppName: Boolean;
 		procedure SetAppName(AValue: string);
@@ -60,6 +61,7 @@ type
 		procedure SetHintPause(const aValue: Integer);
 		procedure SetHintShortCuts(const aValue: Boolean);
 		procedure SetHintShortPause(const aValue: Integer);
+		procedure SetMainFormOnTaskBar(AValue: Boolean);
 	  procedure SetOnActionExecute(const Value: TActionEvent);
 	  procedure SetOnActionUpdate(const Value: TActionEvent);
 	  procedure SetOnActivate(const Value: TNotifyEvent);
@@ -100,6 +102,7 @@ type
     property HintShortCuts: Boolean read GetHintShortCuts write SetHintShortCuts;
     property HintShortPause: Integer read GetHintShortPause write SetHintShortPause;
     property ShowHint: Boolean read GetShowHint write SetShowHint;
+    property MainFormOnTaskBar: Boolean read GetMainFormOnTaskBar write SetMainFormOnTaskBar;
 
 		property OnActionExecute: TActionEvent read GetOnActionExecute write SetOnActionExecute;
 		property OnActionUpdate: TActionEvent read GetOnActionUpdate write SetOnActionUpdate;
@@ -169,6 +172,7 @@ type
     HintShortCuts: Boolean;
     HintShortPause: Integer;
     ShowHint: Boolean;
+    MainFormOnTaskBar: Boolean;
 
     OnActionExecute: TActionEvent;
     OnActionUpdate: TActionEvent;
@@ -471,6 +475,19 @@ begin
   	Result := Application.HintShortPause;
 end;
 
+function TTSApplication.GetMainFormOnTaskBar: Boolean;
+begin
+  if csDesigning in ComponentState then
+  begin
+    if Assigned(AppEventStorage) then
+      Result := AppEventStorage.MainFormOnTaskBar
+    else
+      Result := Application.MainFormOnTaskBar;
+  end
+  else
+  	Result := Application.MainFormOnTaskBar;
+end;
+
 function TTSApplication.GetShowHint: Boolean;
 begin
   if csDesigning in ComponentState then
@@ -743,6 +760,17 @@ begin
   end
   else
   	Application.HintShortPause := aValue;
+end;
+
+procedure TTSApplication.SetMainFormOnTaskBar(AValue: Boolean);
+begin
+  if csDesigning in ComponentState then
+  begin
+    if Assigned(AppEventStorage) then
+      AppEventStorage.MainFormOnTaskBar := aValue
+  end
+  else
+  	Application.MainFormOnTaskBar := aValue;
 end;
 
 procedure TTSApplication.SetOnActionExecute(const Value: TActionEvent);

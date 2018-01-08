@@ -1,8 +1,11 @@
 unit TSLibDateTime;
 
 interface
+
 uses
+  {$IFDEF WINDOWS}
 	Windows,
+  {$ENDIF}
   TSResources,
   TSLibConvert,
   Classes;
@@ -148,7 +151,9 @@ function FmtStrToDate(DateStr: string): TDateTime; overload;
 function FmtStrToDate(DateStr: string; DefaultDate: TDateTime): TDateTime; overload;
 function FmtStrToDate(DateStr: string; DateFormat: string; DefaultDate: TDateTime): TDateTime; overload;
 function FmtStrToDate(DateStr: string; DateFormat: string): TDateTime; overload;
+{$IFDEF WINDOWS}
 function FileTime2DateTime(FileTime: TFileTime): TDateTime;
+{$ENDIF}
 function AnsiDateStr2Date(DateStr: string): TDateTime;
 
 //Similar to EncodeDate. Adds Correction Types:
@@ -372,6 +377,7 @@ begin
 	Result := EncodeDateTime(Y, M, D, H, MM, S, MS);
 end;
 
+{$IFDEF WINDOWS}
 //---------------------------------------------------------------------------------------
 function FileTime2DateTime(FileTime: TFileTime): TDateTime;
 var
@@ -382,6 +388,7 @@ begin
 	FileTimeToSystemTime(LocalFileTime, SystemTime) ;
 	Result := SystemTimeToDateTime(SystemTime) ;
 end;
+{$ENDIF}
 
 //---------------------------------------------------------------------------------------
 {Wandelt einen Zeitstempel-String im Format yyyymmdd hh:nn:ss in einen TDateTime-Wert um.

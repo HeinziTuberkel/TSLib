@@ -10,8 +10,6 @@ unit TS_Edit;
   that this message - and hence the corresponding properties - have no function in other OSs.
   That's why they are enclosed in "IFDEF WINDOWS".
 
-
-
 }
 
 interface
@@ -99,6 +97,7 @@ type
 		fAutoSizeWidth: Boolean;
 		fGutterLeft: Integer;
 		fGutterRight: Integer;
+		fOnAccepted: TNotifyEvent;
 		fResetKey: TShortCut;
 		fOnAccept: MTSAcceptEvent;
 		fOnReset: TNotifyEvent;
@@ -150,6 +149,7 @@ type
 		property AcceptKey: TShortCut read fAcceptKey write SetAcceptKey stored StoreAcceptKey;
 		property ResetKey: TShortCut read fResetKey write SetResetKey stored StoreResetKey;
 		property OnAccept: MTSAcceptEvent read fOnAccept write fOnAccept;
+    property OnAccepted: TNotifyEvent read fOnAccepted write fOnAccepted;
 		property OnReset: TNotifyEvent read fOnReset write fOnReset;
 	end;
 
@@ -170,6 +170,7 @@ type
 
 		//Ereignisse aus TTSCustomEdit
 		property OnAccept;
+    property OnAccepted;
 		property OnReset;
 
 		//Eigenschaften und Ereignisse aus TCustomEdit
@@ -334,6 +335,7 @@ type
   		//Ereignisse aus TTSCustomEdit
   		property OnAccept;
   		property OnReset;
+      property OnAccepted;
 
   		//Eigenschaften und Ereignisse aus TCustomEdit
       property AutoSize;
@@ -440,7 +442,6 @@ type
 		procedure SetAsFloat(Val: Extended); virtual;
 		procedure SetValue(Val: Extended);
 		procedure EvalText;
-		procedure ButtonClick; override;
 		procedure UpdateDisplay(DisplayMode: NTSEditDispMode=dmFocusedState);
 		procedure DefineProperties(Filer: TFiler); override;
 		procedure ReadExtendedValues(Reader: TReader);
@@ -458,6 +459,7 @@ type
 		function NumStringAt(Position: Integer): string;
 		property IsEmpty: Boolean read GetIsEmpty;
 		function Accept: Boolean; override;
+		procedure ButtonClick; override;
 		procedure Reset; override;
 	protected //Eigenschaften zur Veröffentlichung ("published")
 		property Alignment default taRightJustify;
@@ -513,6 +515,7 @@ type
     property AntiFlickerGutter;
 		property OnAccept;
 		property OnReset;
+    property OnAccepted;
 
 		//Eigenschaften und Ereignisse aus TCustomEdit
     property AutoSize;
@@ -679,6 +682,7 @@ type
     property AntiFlickerGutter;
 		property OnAccept;
 		property OnReset;
+    property OnAccepted;
 
     //Eigenschaften und Ereignisse aus TCustomEdit
     property AutoSize;
@@ -1479,6 +1483,8 @@ begin
 			Modified := False;
 			SelectAll;
 			Result := True;
+      if Assigned(fOnAccepted) then
+      	fOnAccepted(Self);
 		end;
 		aaAbort:
 			if ComponentState * [csLoading, csDesigning] = [] then
@@ -2055,6 +2061,8 @@ begin
 				SetValue(Val);
 	      SelectAll;
 				Result := True;
+        if Assigned(fOnAccepted) then
+        	fOnAccepted(Self);
 			end;
 			aaAbort:
 				if (ComponentState * [csLoading, csDesigning]) = [] then
@@ -2691,6 +2699,8 @@ begin
 			SetRange(Rg);
 			SelectAll;
 			Result := True;
+      if Assigned(fOnAccepted) then
+      	fOnAccepted(Self);
 		end;
 		aaAbort:
 			if ComponentState * [csLoading, csDesigning] = [] then
