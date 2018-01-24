@@ -19,7 +19,6 @@ type
 		fDownGlyph: TBitmap;
 		fGlyph: TBitmap;
 		fGroupIndex: Integer;
-		fDownGlyphAssigned: Boolean;
 		function GetDown: Boolean;
 		procedure SetAllowAllUp(const aValue: Boolean);
 		procedure SetDown(const aValue: Boolean);
@@ -28,6 +27,7 @@ type
 		procedure SetGroupIndex(const aValue: Integer);
     procedure SetInheritedDown(aValue: Boolean);
   protected
+		procedure Loaded; override;
 		procedure UpdateExclusive; virtual;
   public
     constructor Create(AOwner: TComponent); override;
@@ -46,7 +46,6 @@ procedure Register;
 implementation
 
 uses
-	LCLProc,
   LResources,
   CompanyConstants;
 
@@ -64,13 +63,12 @@ begin
 	inherited Create(AOwner);
 	fGlyph := TBitmap.Create;
 	fDownGlyph := TBitmap.Create;
-	fDownGlyphAssigned := False;
 end;
 
 destructor TTSSpeedButton.Destroy;
 begin
-	FreeThenNIL(fGlyph);
-  FreeThenNIL(fDownGlyph);
+	FreeAndNIL(fGlyph);
+  FreeAndNIL(fDownGlyph);
 	inherited Destroy;
 end;
 
@@ -100,10 +98,16 @@ end;
 procedure TTSSpeedButton.SetInheritedDown(aValue: Boolean);
 begin
   inherited Down := aValue;
-	if aValue and fDownGlyphAssigned then
+	if aValue and not fDownGlyph.Empty then
 		inherited Glyph := fDownGlyph
 	else
 		inherited Glyph := fGlyph;
+end;
+
+procedure TTSSpeedButton.Loaded;
+begin
+	inherited Loaded;
+	SetInheritedDown(Down);
 end;
 
 procedure TTSSpeedButton.Click;
@@ -115,21 +119,25 @@ end;
 
 procedure TTSSpeedButton.SetDownGlyph(AValue: TBitmap);
 begin
-  //if (fDownGlyph <> nil) and (fDownGlyph = AValue) then
-  //  exit;
-  fDownGlyph.Assign(AValue);
-	fDownGlyphAssigned := True;
-	if Down then
-		inherited Glyph := AValue;
+  if (fDownGlyph <> nil) and (fDownGlyph = AValue) then
+    exit;
+	fDownGlyph.Assign(AValue);
+
+	if Down and not fDownGlyph.Empty then
+		inherited Glyph := AValue
+	else
+		inherited Glyph := fGlyph;
 end;
 
 procedure TTSSpeedButton.SetGlyph(AValue: TBitmap);
 begin
-  //if (fGlyph <> nil) and (fGlyph = AValue) then
-  //  exit;
+  if (fGlyph <> nil) and (fGlyph = AValue) then
+  	exit;
   fGlyph.Assign(AValue);
-	if not (Down and fDownGlyphAssigned) then
-		inherited Glyph := AValue;
+	if not Down or fDownGlyph.Empty then
+		inherited Glyph := AValue
+	else
+		inherited Glyph := fDownGlyph;
 end;
 
 procedure TTSSpeedButton.SetGroupIndex(const aValue: Integer);
