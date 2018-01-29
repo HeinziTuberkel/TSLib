@@ -46,6 +46,7 @@ procedure Register;
 implementation
 
 uses
+dialogs,
   LResources,
   CompanyConstants;
 
@@ -119,20 +120,16 @@ end;
 
 procedure TTSSpeedButton.SetDownGlyph(AValue: TBitmap);
 begin
-  if (fDownGlyph <> nil) and (fDownGlyph = AValue) then
-    exit;
 	fDownGlyph.Assign(AValue);
-
-	if Down and not fDownGlyph.Empty then
+	if Down and not AValue.Empty then
 		inherited Glyph := AValue
-	else
+	else begin
 		inherited Glyph := fGlyph;
+	end;
 end;
 
 procedure TTSSpeedButton.SetGlyph(AValue: TBitmap);
 begin
-  if (fGlyph <> nil) and (fGlyph = AValue) then
-  	exit;
   fGlyph.Assign(AValue);
 	if not Down or fDownGlyph.Empty then
 		inherited Glyph := AValue
